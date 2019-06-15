@@ -1,0 +1,8 @@
+{
+    "HOST": "localhost",
+    "PORT": 3000,
+    "SQL_PORT": 3306,
+    "USER": "root",
+    "PASSWORD": "",
+    "DB": "your_phone"
+}

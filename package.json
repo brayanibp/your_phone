@@ -1,0 +1,27 @@
+{
+  "name": "your_phone",
+  "version": "1.0.0",
+  "description": "This gonna be an E-commerce for a phone sell, maked to DB matter at URBE.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "keywords": [
+    "Phone",
+    "Commerce",
+    "Phones",
+    "Telefono",
+    "Comercio",
+    "Tienda"
+  ],
+  "author": "Brayan Bernal",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql": "^2.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}
