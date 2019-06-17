@@ -13,6 +13,9 @@ connection = mysql.createConnection({
     database: DB
 });
 
+
+connection.
+
 app.listen(PORT,()=>{
     console.log(`app runing at port: ${PORT} and host: ${HOST}`)
 });
