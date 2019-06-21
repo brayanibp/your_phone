@@ -1,12 +1,13 @@
 DROP DATABASE your_phone;
-CREATE DATABASE your_phone;
+CREATE DATABASE your_phone CHARACTER SET UTF8 COLLATE utf8_bin;
 USE your_phone;
 
 CREATE TABLE users(
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     firts_name VARCHAR(15) NOT NULL,
     last_name VARCHAR(15) NOT NULL,
-    email VARCHAR(25) NOT NULL,
+    email VARCHAR(50) UNIQUE NOT NULL,
+    password VARCHAR(20) NOT NULL,
     credit_card INT UNIQUE NOT NULL,
     birth_day TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
@@ -59,6 +60,7 @@ CREATE TABLE phones(
     model VARCHAR(20) NOT NULL,
     trademark_id INT NOT NULL,
     price DOUBLE NOT NULL,
+    inventory_quantity INT NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY(trademark_id) REFERENCES trademarks(id)
 );
@@ -73,6 +75,7 @@ CREATE TABLE shopping_car(
 CREATE TABLE shopping_car_details(
     shopping_car_id INT NOT NULL,
     phone_id INT NOT NULL,
+    phone_quantity INT NOT NULL,
     UNIQUE KEY(shopping_car_id,phone_id),
     FOREIGN KEY(shopping_car_id) REFERENCES shopping_car(id),
     FOREIGN KEY(phone_id) REFERENCES phones(id)
@@ -84,3 +87,5 @@ CREATE TABLE payment_receipts(
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY(shopping_car_id) REFERENCES shopping_car(id)
 );
+
+INSERT INTO users (firts_name,last_name,email,password,credit_card) VALUES ('Brayan','Bernal','brayanbernal0710@gmail.com','123Bra**','123456789');

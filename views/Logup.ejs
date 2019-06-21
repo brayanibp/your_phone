@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Log Up</title>
+    <link rel="stylesheet" href="/style/style.css">
+</head>
+<body>
+    <div class="login-background"></div>
+    <div class="log-flex-container">
+        <div class="logup-form-container">
+            <div class="welcome">
+                <h1>Log Up And Join Us!</h1>
+            </div>
+            <div class="form">
+                <form action="logUp" method="POST">
+                    <div class="log-inf">
+                        <label for="name">Name</label>
+                        <input type="text" name="name" id="name" placeholder="Name">
+                    </div>
+                    <div class="log-inf">
+                        <label for="lastname">Lastname</label>
+                        <input type="text" name="lastname" id="lastname" placeholder="Lastname">
+                    </div>
+                    <div class="log-inf">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" placeholder="Email">
+                    </div>
+                    <div class="log-inf">
+                        <label for="birth_day">Lastname</label>
+                        <input type="date" name="birth_day" id="birth_day" placeholder="">
+                    </div>
+                    <div class="log-inf">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" id="password" placeholder="Password">
+                    </div>
+                    <div class="log-inf">
+                        <label for="password">Confirm Password</label>
+                        <input type="password" name="cpassword" id="cpassword" placeholder="Confirm Password">
+                    </div>
+                    <div class="log-inf">
+                        <label for="credit_card">Credit Card</label>
+                        <input type="number" name="credit_card" id="credit_card" placeholder="0000-0000-0000-0000">
+                    </div>
+                    <div class="log-inf">
+                    </div>
+                    <button class="log-button">Log Up!</button>
+                    <div class="log-inf message">
+                        <span>You already have account?<a href="/logIn"> Log In Here! </a></span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

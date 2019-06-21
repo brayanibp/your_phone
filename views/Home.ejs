@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Your Phone!</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>Home</li>
+                <li>Pursached</li>
+                <li><a href="/logIn">Sing In!</a></li>
+                <li><a href="/logUp">Sing Up!</a></li>
+            </ul>
+        </nav>
+        <h1>You Want a Phone? We Got It!</h1>
+    </header>
+        <p><%=(user) ? `Welcome ${user.email}` : 'Welcome body' %>!</p>
+    <script src="/scripts/libs/jquery-3.1.1.min.js"></script>
+    <script src="/scripts/app.js"></script>
+</body>
+</html>
