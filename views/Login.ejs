@@ -11,6 +11,11 @@
     <div class="login-background">
     </div>
     <div class="log-flex-container">
+        <%if (message) {%>
+            <span class="err-message"><%= message %></span>
+        <%} else {%>
+            <span></span>
+        <%}%>
         <div class="login-form-container">
             <div class="welcome">
                 <h1>LOG IN AND BE WELCOME!</h1>

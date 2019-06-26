@@ -5,21 +5,92 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Your Phone!</title>
+    <link rel="stylesheet" href="/style/style.css">
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-                <li>Home</li>
-                <li>Pursached</li>
-                <li><a href="/logIn">Sing In!</a></li>
-                <li><a href="/logUp">Sing Up!</a></li>
-            </ul>
-        </nav>
-        <h1>You Want a Phone? We Got It!</h1>
+        <div class="header-background"></div>
+        <div class="filter">
+            <nav class="navbar">
+                <div class="nav-list">
+                    <ul>
+                        <div id="search-box" class="nav-option">
+                            <li><input type="search" name="phone_search" id="phone_search" placeholder="Search..."></li>
+                        </div>
+                        <div class="nav-option">
+                            <li><a href="/">Home</a></li>
+                        </div>
+                        <div class="nav-option">
+                            <li><a href="/history">Pursached</a></li>
+                        </div>
+                        <% if (user) {%>
+                            <div class="nav-option" id="user_log">
+                                <div class="user-log" id="user_loged">
+                                    <%= user.first_name.substr(0,1)+user.last_name.substr(0,1) %>
+                                </div>
+                            </div>
+                            <div id="user_box">
+                                <div id="user_inf">
+                                    <ul>
+                                        <div class="user-option user_name">
+                                            <button id="user_box_close"></button>
+                                            <li><%= user.first_name + ' ' + user.last_name %></li>
+                                        </div>
+                                        <div class="user-option">
+                                            <li>
+                                                <a href="/userInf">Profile</a>
+                                            </li>
+                                        </div>
+                                        <div class="user-option">
+                                            <li>
+                                                <a href="/userInf/shoppingCar">Shopping Car</a>
+                                            </li>
+                                        </div>
+                                        <div class="user-option">
+                                            <li>
+                                                <a href="/userInf/receipts">Receipts</a>
+                                            </li>
+                                        </div>
+                                        <div class="user-option log-out">
+                                            <a href="/logOut" id="user_log_out">Log Out</a href="/logOut">
+                                        </div>
+                                    </ul>
+                                </div>
+                            </div>
+                        <%} else {%>
+                            <div class="nav-option">
+                                <li><a href="/logIn">Sing In!</a></li>
+                            </div>
+                            <div class="nav-option">
+                                <li><a href="/logUp">Sing Up!</a></li>
+                            </div>
+                        <%}%>
+                    </ul>
+                </div>
+            </nav>
+            <div class="slogan">
+                <h1>You Want a Phone? We Got It!</h1>
+            </div>
+        </div>
     </header>
-        <p><%=(user) ? `Welcome ${user.email}` : 'Welcome body' %>!</p>
+    <section class="content">
+        <div id="orderBy">
+            <ul>
+                <div>
+                    <li>
+                        <label for="">Order By Price</label>
+                        <div>
+                            <label><input type="radio" name="price" value="ASC">Ascendent</label>
+                        </div>
+                        <div>
+                            <label><input type="radio" name="price" value="DESC">Descendent</label>
+                        </div>
+                    </li>
+                </div>
+            </ul>
+        </div>
+    </section>
     <script src="/scripts/libs/jquery-3.1.1.min.js"></script>
-    <script src="/scripts/app.js"></script>
+    <script src="/scripts/scripts.js"></script>
 </body>
 </html>

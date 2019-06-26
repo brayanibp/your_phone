@@ -3,6 +3,8 @@
     margin: 0;
     padding: 0;
     text-decoration-line: none;
+    list-style: none;
+    overflow-x: hidden;
 }
 
 a {
@@ -42,10 +44,24 @@ span {
     z-index: 1;
 }
 
+.err-message {
+    width: 100%;
+    height: 30px;
+    position: fixed;
+    top: -50px;
+    background: red;
+    color: white;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding-top: 10px;
+    text-align: center;
+    animation: message-drop-down 5s;
+}
+
 .logup-form-container {
     margin: auto;
     width: 600px;
-    height: min-content;
+    height: 550px;
     padding: 50px;
     background: rgba(238, 238, 238,0.9);
     z-index: 1;
@@ -98,4 +114,223 @@ span {
 .message {
     width: 400px;
     text-align: center;
+}
+
+header {
+    height: 250px;
+    width: 100vw;
+}
+
+.header-background {
+    height: 300px;
+    width: 100vw;
+    position: fixed;
+    top: 0px;
+    background-image: url('/sources/imgs/logBackground.jpg');
+    background-size: cover;
+    filter: blur(3px);
+    transform: scale(1.1);
+    z-index: -1;
+}
+
+.filter {
+    background-color: rgba(0, 0, 0, 0.4);
+    height: 100%;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 75px;
+}
+
+.nav-list ul {
+    float: right;
+    width: 670px;
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    overflow: initial;
+}
+
+.nav-option {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: initial;
+}
+
+.nav-option a {
+    color: #FFFFFF;
+}
+
+#phone_search {
+    height: 30px;
+    width: 300px;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    background: rgba(255, 255, 255, 0.6);
+}
+
+#phone_search:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+#user_log {
+    position: relative;
+    top: -10px;
+    height: 50px;
+}
+
+.user-log {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background: cornflowerblue;
+    border-radius: 50%;
+    color: #FFFFFF;
+}
+
+#user_box {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 320px;
+    width: 320px;
+    background: white;
+    box-shadow: -3px 3px 5px rgba(0, 0, 0,0.5);
+    animation: user-box-appear 0.6s;
+    display: none;
+    overflow: hidden;
+}
+
+#user_box_close {
+    border: none;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 28px;
+    height: 28px;
+    padding: 2px;
+    color: #FFFFFF;
+    background-color: transparent;
+    background-image: url('/sources/imgs/error.png');
+    background-size: 28px;
+    font-size: 1em;
+}
+
+.user-box-visible {
+    display: flex !important;
+}
+
+#user_inf {
+    width: 320px;
+    height: 320px;
+    margin: auto;
+}
+
+#user_inf ul {
+    width: 320px;
+    height: 320px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: stretch;
+    flex-direction: column;
+}
+
+.user-option {
+    width: 300px;
+    height: 30px;
+    padding: 10px;
+    text-align: center;
+}
+
+.user-option a {
+    color: #888888;
+}
+
+.log-out {
+    padding: 0;
+    width: 100%;
+    height: 50px;
+    position: relative;
+    bottom: 0;
+}
+
+.log-out a {
+    display: block;
+    padding-top: 15px;
+    border: none;
+    width: 100%;
+    height: 35px;
+    background: rgb(230, 230, 230);
+    color: rgb(200, 200, 200);
+    font-size: 1.1em;
+}
+
+.user_name {
+    color: #FFFFFF;
+    font-size: 1.3em;
+    background: cornflowerblue;
+    text-align: center;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.slogan {
+    width: 100vw;
+    margin-top: 60px;
+    margin-left: 40px;
+    color: #FFFFFF;
+}
+
+.content {
+    z-index: 1;
+    background: #FFFFFF;
+    width: 100vw;
+    min-height: 1000px;
+}
+
+@keyframes message-drop-down {
+    0% {
+        top: -50px;
+    }
+    50% {
+        top: 0px;
+    }
+    100% {
+        top: -50px;
+    }
+}
+
+@keyframes user-box-appear {
+    0% {
+        top: -10px;
+        right: -10px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50% 0% 50% 50%;
+    }
+    25% {
+        top: 0;
+        right: 0;
+        border-radius: 30% 0% 30% 50%;
+    }
+    100% {
+        width: 320px;
+        height: 320px;
+        border-radius: 0%;
+    }
 }

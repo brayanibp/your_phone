@@ -4,7 +4,7 @@ USE your_phone;
 
 CREATE TABLE users(
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    firts_name VARCHAR(15) NOT NULL,
+    first_name VARCHAR(15) NOT NULL,
     last_name VARCHAR(15) NOT NULL,
     email VARCHAR(50) UNIQUE NOT NULL,
     password VARCHAR(20) NOT NULL,
@@ -55,14 +55,19 @@ CREATE TABLE trademarks(
 
 CREATE TABLE phones(
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    name VARCHAR(20) NOT NULL,
-    description VARCHAR(200) NOT NULL,
     model VARCHAR(20) NOT NULL,
     trademark_id INT NOT NULL,
     price DOUBLE NOT NULL,
     inventory_quantity INT NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY(trademark_id) REFERENCES trademarks(id)
+);
+
+CREATE TABLE phone_description(
+    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    characteristic VARCHAR(20) NOT NULL,
+    phone_id INT NOT NULL,
+    FOREIGN KEY(phone_id) REFERENCES phones(id)
 );
 
 CREATE TABLE shopping_car(
@@ -88,4 +93,4 @@ CREATE TABLE payment_receipts(
     FOREIGN KEY(shopping_car_id) REFERENCES shopping_car(id)
 );
 
-INSERT INTO users (firts_name,last_name,email,password,credit_card) VALUES ('Brayan','Bernal','brayanbernal0710@gmail.com','123Bra**','123456789');
+INSERT INTO users (first_name,last_name,email,password,credit_card) VALUES ('Brayan','Bernal','brayanbernal0710@gmail.com','123Bra**','123456789');

@@ -10,6 +10,11 @@
 <body>
     <div class="login-background"></div>
     <div class="log-flex-container">
+        <%if (message) {%>
+            <span class="err-message"><%= message %></span>
+        <%} else {%>
+            <span></span>
+        <%}%>
         <div class="logup-form-container">
             <div class="welcome">
                 <h1>Log Up And Join Us!</h1>
@@ -29,8 +34,8 @@
                         <input type="email" name="email" id="email" placeholder="Email">
                     </div>
                     <div class="log-inf">
-                        <label for="birth_day">Lastname</label>
-                        <input type="date" name="birth_day" id="birth_day" placeholder="">
+                        <label for="birth_day">Birth Day</label>
+                        <input type="date" name="birth_day" id="birth_day" placeholder="01/01/1999">
                     </div>
                     <div class="log-inf">
                         <label for="password">Password</label>

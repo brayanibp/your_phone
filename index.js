@@ -2,6 +2,7 @@ const mysql = require('mysql');
 const express = require('express');
 const bodyParser = require('body-parser');
 const session = require('express-session');
+const nodemailer = require('nodemailer');
 
 const { HOST, PORT, SQL_PORT, USER, PASSWORD, DB } = require('./config.json')
 
@@ -17,6 +18,7 @@ app.use(express.static(__dirname+'/public'));
 
 require('./routes/api.js')(app);
 require('./routes/routes.js')(app);
+require('./routes/mailer')(app);
 
 connection = mysql.createConnection({
     host: HOST,
