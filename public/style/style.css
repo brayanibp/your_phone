@@ -387,6 +387,24 @@ header {
     margin: 20px;
 }
 
+.phone-general-image {
+    width: 270px;
+    height: 300px;
+    margin: auto;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.phone-general-inf {
+    width: 250px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
 .side-option-bar {
     width: 320px;
     height: 100vh;

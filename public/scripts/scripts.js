@@ -53,14 +53,19 @@ function loadPhoneCards() {
             let phoneCards = '';
             lastPhoneId = 0;
             for (let i in data) {
-                if (lastPhoneId == data[i].phone_id) {
-                    phoneCard += `${data[i].characteristic}`;
-                } else {
-                    phoneCard += '</div>';
-                    phoneCards += phoneCard;
-                    phoneCard = `<div id="${data[i].phone_id}" class="phone-card"><img src="/sources/imgs/background1.jpg" height="300px" width="300px" alt="telf">`;
-                }
-                phoneCards += '</div>';
+                phoneCard = `
+                    <div id="${data[i].phone_id}" class="phone-card">
+                        <div class="phone-general-image">
+                            <img src="${data[i].phone_image}" alt="telf">
+                        </div>
+                        <div class="phone-general-inf">
+                            <label>${data[i].phone_name}</label>
+                            <label>Price: ${data[i].phone_price}</label>
+                            <label>Available: ${data[i].inventory}</label>
+                        </div>
+                    </div>
+                `;
+                phoneCards += phoneCard;
             }
             container.innerHTML = phoneCards;
         }

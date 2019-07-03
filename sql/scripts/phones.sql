@@ -19,7 +19,7 @@ VALUES ('Pantalla: 6.3", 1080 x 2340 pixels',1),
        ('Peso: 169 g',1),
        ('Precio: 290 USD',1);
 
-SELECT phones.id AS phone,
+/* SELECT phones.id AS phone,
        image_url, 
        phone_description.id AS detail,
        CONCAT(trademarks.name, ' ', phones.model) AS phone_name, 
@@ -31,3 +31,7 @@ INNER JOIN phone_description
 ON phones.id = phone_description.phone_id 
 INNER JOIN trademarks 
 ON trademarks.id = phones.trademark_id;
+
+SELECT * FROM phones;
+
+UPDATE phones SET phones.image_url = '/sources/imgs/samsung_M40.webp' WHERE phones.id = 1; */

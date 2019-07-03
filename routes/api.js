@@ -2,7 +2,15 @@ const API_DIR = '/API';
 
 module.exports =(app)=>{
     app.get(`${API_DIR}/phones`,(req,res)=>{
-        connection.query('SELECT * FROM phones INNER JOIN phone_description ON phones.id = phone_description.phone_id',(err,result)=>{
+        const q = `SELECT phones.id AS phone_id,
+                          phones.image_url AS phone_image, 
+                          CONCAT(trademarks.name, ' ', phones.model) AS phone_name, 
+                          phones.price AS phone_price, 
+                          phones.inventory_quantity AS inventory 
+                   FROM phones 
+                   INNER JOIN trademarks 
+                   ON phones.trademark_id = trademarks.id`;
+        connection.query(q,(err,result)=>{
             if (err) throw err;
             res.json(result);
         });
