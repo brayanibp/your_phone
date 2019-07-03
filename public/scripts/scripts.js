@@ -11,7 +11,6 @@ let logOut_button = document.querySelector('#logOut_button');
 
 if (fixedNavbar) {
     window.addEventListener('scroll', function(e) {
-        //console.log(window.scrollY)
         let position = window.scrollY;
         if (position > 189) {
             fixedNavbar.classList.add('fixed-nav-background');
