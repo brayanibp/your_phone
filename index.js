@@ -2,7 +2,7 @@ const mysql = require('mysql');
 const express = require('express');
 const bodyParser = require('body-parser');
 const session = require('express-session');
-const nodemailer = require('nodemailer');
+const cors = require('cors');
 
 const { HOST, PORT, SQL_PORT, USER, PASSWORD, DB } = require('./config.json')
 
@@ -16,9 +16,22 @@ app.use((req, res, next)=>{
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname+'/public'));
 
+app.use(cors());
+app.options('*', cors());
+
+app.all('*', function(req, res, next) {
+	res.header("Access-Control-Allow-Origin", "*");
+	res.header("Access-Control-Allow-Headers", "X-Requested-With");
+	next();
+});
+
 require('./routes/api.js')(app);
 require('./routes/routes.js')(app);
 require('./routes/mailer')(app);
+
+app.get('*',(req,res)=>{
+    res.render('NotFound');
+});
 
 connection = mysql.createConnection({
     host: HOST,

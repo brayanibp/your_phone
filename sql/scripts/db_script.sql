@@ -8,8 +8,8 @@ CREATE TABLE users(
     last_name VARCHAR(15) NOT NULL,
     email VARCHAR(50) UNIQUE NOT NULL,
     password VARCHAR(20) NOT NULL,
-    credit_card INT UNIQUE NOT NULL,
-    birth_day TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    credit_card VARCHAR(24) UNIQUE NOT NULL,
+    birth_day DATE NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -32,20 +32,22 @@ CREATE TABLE cities(
     FOREIGN KEY(state_id) REFERENCES states(id)
 );
 
-CREATE TABLE postal_codes(
-    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    city_id INT NOT NULL,
-    code INT NOT NULL,
-    FOREIGN KEY(city_id) REFERENCES cities(id)
-);
+-- CREATE TABLE postal_codes(
+--     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+--     city_id INT NOT NULL,
+--     code INT NOT NULL,
+--     FOREIGN KEY(city_id) REFERENCES cities(id)
+-- );
 
 CREATE TABLE directions(
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     user_id INT NOT NULL,
     direction VARCHAR(200) NOT NULL,
-    postal_code_id INT NOT NULL,
+    city_id INT NOT NULL,
+    -- postal_code_id INT NOT NULL,
     FOREIGN KEY(user_id) REFERENCES users(id),
-    FOREIGN KEY(postal_code_id) REFERENCES postal_codes(id)
+    FOREIGN KEY(city_id) REFERENCES cities(id)
+    -- FOREIGN KEY(postal_code_id) REFERENCES postal_codes(id)
 );
 
 CREATE TABLE trademarks(
@@ -55,9 +57,10 @@ CREATE TABLE trademarks(
 
 CREATE TABLE phones(
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    image_url VARCHAR(50) NOT NULL,
     model VARCHAR(20) NOT NULL,
     trademark_id INT NOT NULL,
-    price DOUBLE NOT NULL,
+    price DECIMAL(6,2) NOT NULL,
     inventory_quantity INT NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY(trademark_id) REFERENCES trademarks(id)
@@ -65,7 +68,7 @@ CREATE TABLE phones(
 
 CREATE TABLE phone_description(
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    characteristic VARCHAR(20) NOT NULL,
+    characteristic VARCHAR(100) NOT NULL,
     phone_id INT NOT NULL,
     FOREIGN KEY(phone_id) REFERENCES phones(id)
 );
@@ -92,5 +95,3 @@ CREATE TABLE payment_receipts(
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY(shopping_car_id) REFERENCES shopping_car(id)
 );
-
-INSERT INTO users (first_name,last_name,email,password,credit_card) VALUES ('Brayan','Bernal','brayanbernal0710@gmail.com','123Bra**','123456789');

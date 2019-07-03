@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Profile</title>
+    <link rel="stylesheet" href="/style/style.css">
+</head>
+<body>
+    <div class="side-option-bar">
+        <div class="user-header">
+            <label class="user-name"><%= user.first_name + ' ' + user.last_name %></label>
+        </div>
+        <div class="profile-ops-container">
+            <ul>
+                <div class="profile-opt">
+                    <li><button id="profile_button">Profile</button></li>
+                </div>
+                <div class="profile-opt">
+                    <li><button id="shoping_button">Shopping Car</button></li>
+                </div>
+                <div class="profile-opt">
+                    <li><button id="shoped_button">Pursached</button></li>
+                </div>
+                <div class="profile-opt">
+                    <li><button id="receipts_button">Receipts</button></li>
+                </div>
+                <div class="profile-opt">
+                    <li><a href="/logOut" id="user_log_out">Log Out</a href="/logOut"></li>
+                </div>
+            </ul>
+        </div>
+    </div>
+    <div id="interactive_content">
+        <!--EMPTY-->
+    </div>
+    <script src="/scripts/libs/jquery-3.1.1.min.js"></script>
+    <script src="/scripts/scripts.js"></script>
+</body>
+</html>

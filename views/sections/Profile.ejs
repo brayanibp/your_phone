@@ -1,0 +1,38 @@
+<section>
+    <h1>My Profile</h1>
+    <ul>
+        <li>
+            <h2>Personal Facts</h2>
+            <ul>
+                <li>
+                    <label>Name:</label>
+                    <%=user.first_name %>
+                </li>
+                <li>
+                    <label>Lastname:</label>
+                    <%=user.last_name %>
+                </li>
+                <li>
+                    <label>Birth Day:</label>
+                    <%= user.birth_day %>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <h2>Account Facts</h2>
+            <ul>
+                <li>Email: <%= user.email %></li>
+                <li>Password: <%= user.password %></li>
+                <li>Credit Card: <%= user.credit_card %></li>
+            </ul>
+        </li>
+        <li>
+            <h2>Directions:</h2>
+            <ul>
+                <li>None</li>
+            </ul>
+            <button>Agree</button>
+        </li>
+        <li><button>Save</button></li>
+    </ul>
+</section>

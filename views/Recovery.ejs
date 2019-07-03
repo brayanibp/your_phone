@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Log In</title>
+    <title>Your Phone!</title>
     <link rel="stylesheet" href="/style/style.css">
 </head>
 <body>
@@ -18,28 +18,26 @@
         <%}%>
         <div class="login-form-container">
             <div class="welcome">
-                <h1>LOG IN AND BE WELCOME!</h1>
+                <h1>WE CAN SOLVE IT!</h1>
             </div>
             <div class="form">
-                <form action="LogIn" method="POST">
+                <form action="Mailer" method="POST">
+                    <div class="log-inf recovery-message">
+                        <p>
+                            Ok, as we say, we can solve it, but to confirm your identity we need
+                             to you type one more time your email for we can send you the last password that you use.
+                            Then let's try if the email it's right we don't gonna have troubles.
+                        </p>
+                    </div>
                     <div class="log-inf">
                         <label for="email">Email</label>
                         <input type="email" name="email" id="email" placeholder="Email">
                     </div>
-                    <div class="log-inf">
-                        <label for="password">Password</label>
-                        <input type="password" name="password" id="password" placeholder="Password">
-                    </div>
-                    <button class="log-button">Log In!</button>
+                    <button class="log-button">Ok, Send my Password!</button>
                 </form>
-                <form action="Mailer" method="POST">
-                    <div class="outer-message">
-                        <span>You forgot your password? <a href="/recovery">Recovery Here!</a></span>
-                    </div>
-                    <div class="outer-message">
-                        <span>You don't have account?<a href="/logUp"> Log Up Here! </a></span>
-                    </div>
-                </form>
+                <div class="outer-message">
+                    <span>You don't have account?<a href="/logUp"> Log Up Here! </a></span>
+                </div>
             </div>
         </div>
     </div>

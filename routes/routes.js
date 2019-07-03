@@ -17,7 +17,7 @@ module.exports =(app)=>{
         const email = req.body.email;
         const password = req.body.password;
         connection.connect(()=>{
-            const query = `SELECT * FROM users WHERE email = ? AND password = ?`;
+            const query = `SELECT first_name, last_name, email, password, credit_card, DATE(birth_day) AS birth_day, created_at FROM users WHERE email = ? AND password = ?`;
             connection.query(query,[email,password],(err,result)=>{
                 if (err) throw err;
                 if (result.length > 0) {
@@ -64,13 +64,31 @@ module.exports =(app)=>{
         }
     });
 
+    app.get('/recovery',(req,res)=>{
+        res.render('Recovery', {message: false});
+    });
+
+    app.get('/userInf',(req,res)=>{
+        sess = req.session;
+        res.render('User-Panel', {user: sess.user});
+    });
+
+    app.get('/userInf/Profile',(req,res)=>{
+        sess = req.session;
+        console.log(sess);
+        res.type('text/html');
+        app.render('sections/Profile',{user: sess.user},
+            function(err, html){
+                if (err) throw err;
+                res.json({myView: html});
+            }
+        );
+    });
+
     app.get('/logOut', (req,res)=>{
         sess = req.session;
         sess.destroy();
         res.redirect('/');
     });
 
-    app.get('*',(req,res)=>{
-        res.render('NotFound');
-    });
 }

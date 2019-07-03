@@ -7,6 +7,26 @@
     overflow-x: hidden;
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
 a {
     color: cornflowerblue;
 }
@@ -38,7 +58,7 @@ span {
 .login-form-container {
     margin: auto;
     width: 450px;
-    height: 370px;
+    height: 400px;
     padding: 50px;
     background: rgba(238, 238, 238,0.9);
     z-index: 1;
@@ -64,6 +84,7 @@ span {
     height: 550px;
     padding: 50px;
     background: rgba(238, 238, 238,0.9);
+    overflow: initial;
     z-index: 1;
 }
 
@@ -84,6 +105,7 @@ span {
     margin: auto;
     margin-top: 25px;
     margin-bottom: 25px;
+    overflow: initial;
 }
 
 .log-inf input {
@@ -109,6 +131,31 @@ span {
     width: 260px;
     border: none;
     border-radius: 5px;
+}
+
+.outer-message {
+    width: 280px;
+    margin: auto;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 0.8em;
+}
+
+.outer-message button {
+    background: transparent;
+    display: inline-block;
+    width: max-content;
+    font-size: 1em;
+    color: rgb(100, 149, 237);
+    border: none;
+    margin: auto;
+}
+
+.recovery-message {
+    text-align: center;
+    font-size: 0.9em;
+    width: 320px;
+    height: 100px;
 }
 
 .message {
@@ -143,7 +190,11 @@ header {
     top: 0;
     left: 0;
     width: 100vw;
-    height: 75px;
+    height: 60px;
+}
+
+.fixed-nav-background {
+    background-color: rgb(54, 54, 54);
 }
 
 .nav-list ul {
@@ -301,6 +352,57 @@ header {
     background: #FFFFFF;
     width: 100vw;
     min-height: 1000px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#orderBy {
+    background: #EEEEEE;
+    position: absolute;
+    left: 0;
+    width: 300px;
+    height: 95vh;
+    padding: 10px;
+}
+
+.fixed-orderBy {
+    position: fixed !important;
+    top: 60px;
+}
+
+#homeContent {
+    max-width: 1550px;
+    background: #FFFFFF;
+    padding: 20px;
+    padding-left: 340px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: stretch;
+}
+
+.phone-card {
+    width: 320px;
+    height: 400px;
+    background: #EEEEEE;
+    margin: 20px;
+}
+
+.side-option-bar {
+    width: 320px;
+    height: 100vh;
+    position: relative;
+    top: 0;
+    left: 0;
+    background: #EEE;
+}
+
+#interactive_content {
+    position: absolute;
+    top: 0;
+    left: 320px;
+    width: 600px;
+    height: 100vh;
+    background: #FFFFFF;
 }
 
 @keyframes message-drop-down {
